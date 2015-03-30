@@ -22,11 +22,28 @@
       <li><%= link_to 'Dashboard', dashboard_root_path %></li>
       <li><%= link_to 'Sign out', destroy_session_path %></li>
     <% else %>
-      <li><%= link_to 'Sign in', new_session_path %></li>
+      <li><%= link_to 'Sign in', '#', class: 'sign-in' %></li>
       <li><%= link_to 'Sign up', new_sign_up_path %></li>
     <% end %>
   </ul>
 </header>
+
+<div id="sign-in-form" class="hidden">
+  <%= form_tag sessions_path do %>
+    <ul>
+      <li>
+        <%= label_tag :email %>
+        <br /><%= text_field_tag :email, params[:email] %>
+      </li>
+      <li>
+        <%= label_tag :password %>
+        <br /><%= password_field_tag :password %>
+      </li>
+      <li>
+        <%= submit_tag 'Sign in' %>
+      </li>
+  <% end %>
+</div>
 
 <%= yield %>
 
