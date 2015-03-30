@@ -1,0 +1,8 @@
+<p>
+  Title: <%= @task.title %>
+  <br />Description: <%= @task.description %>
+  <br />Completed: <%= @task.completed ? 'Yes' : 'No' %>
+</p>
+
+<%= link_to 'Edit', edit_dashboard_task_path(@task) %> |
+<%= link_to 'Back', dashboard_tasks_path %>

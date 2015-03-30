@@ -1,0 +1,29 @@
+<%= form_for([:dashboard, @task]) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+        <% @task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <ul>
+    <li>
+      <%= f.text_field :title, placeholder: 'Title' %>
+    </li>
+    <li>
+      <%= f.text_field :description, placeholder: 'Description' %>
+    </li>
+    <li>
+      <%= f.select :completed, [['Yes', true], ['No', false]] %>
+    </li>
+  </ul>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

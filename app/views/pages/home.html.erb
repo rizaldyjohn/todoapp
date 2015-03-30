@@ -1,0 +1,7 @@
+<% if current_session.sign_in? %>
+  <h1>Hello <%= current_session.user.first_name %></h1>
+<% else %>
+  <h1>Hello Guest</h1>
+<% end %>
+
+<p><%= Faker::Lorem.sentence(500) %></p>
